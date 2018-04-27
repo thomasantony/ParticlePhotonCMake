@@ -31,8 +31,8 @@ macro(SetupPhotonFirmware PROJECT_TARGET)
         GIT_TAG "release/v0.8.0-rc.3"
         # URL https://github.com/particle-iot/firmware/archive/v0.8.0-rc.3.tar.gz
         CONFIGURE_COMMAND ""
-        WORKING_DIRECTORY "${FIRMWARE_DIR}/modules"
-        BINARY_DIR "${FIRMWARE_DIR}/modules"
+        WORKING_DIRECTORY "${FIRMWARE_DIR}/main"
+        BINARY_DIR "${FIRMWARE_DIR}/main"
         BUILD_COMMAND make make_deps -j1 ${MAKE_FLAGS}
         INSTALL_COMMAND ""
     )
@@ -64,7 +64,9 @@ macro(SetupPhotonFirmware PROJECT_TARGET)
 
     add_custom_target(firmware-upload
         DEPENDS firmware
-        COMMAND particle flash --usb ${TARGET_DIR}/${TARGET_FILE}.bin
+        DEPENDS particle-firmware-deps
+        WORKING_DIRECTORY "${FIRMWARE_DIR}/main"
+        COMMAND make all program-dfu ${MAKE_FLAGS}
     )
 
     add_custom_target(firmware-assembler
