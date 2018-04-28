@@ -4,14 +4,21 @@ A Particle project named blink
 
 ## Dependencies
 
-Install using homebrew
+Ensure that firmware v0.7.0 is flashed on the Photon.
+Install dependencies using homebrew.
 
-`brew install ./gcc-arm-none-eabi-53.rb`
-`brew install dfu-util`
+```
+brew install ./gcc-arm-none-eabi-53.rb
+brew install dfu-util
+```
 
-`mkdir build && cd build`
-`cmake ..`
-`make firmware-upload`
+## Build
+```
+mkdir build && cd build
+cmake ..
+make firmware-upload
+```
+
 ## Welcome to your project!
 
 Every new Particle project is composed of 3 important elements that you'll see have been created in your project directory for blink.

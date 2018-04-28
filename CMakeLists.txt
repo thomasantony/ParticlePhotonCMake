@@ -3,8 +3,6 @@ set(PROJECT blink)
 include(${CMAKE_SOURCE_DIR}/cmake/ParticlePhoton.cmake)
 project(${PROJECT} VERSION 1.0)
 
-# add_subdirectory(src)
-
 set(CMAKE_CXX_STANDARD 14)
 
-SetupPhotonFirmware(blink)
+SetupPhotonFirmware()

@@ -1,4 +1,4 @@
-macro(SetupPhotonFirmware PROJECT_TARGET)
+macro(SetupPhotonFirmware)
     include(ExternalProject)
     find_package(Git REQUIRED)
 
