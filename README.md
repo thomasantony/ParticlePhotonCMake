@@ -6,9 +6,12 @@ A Particle project named blink
 
 Install using homebrew
 
-`brew tap PX4/homebrew-px4`
-`brew install gcc-arm-none-eabi-54`
+`brew install ./gcc-arm-none-eabi-53.rb`
+`brew install dfu-util`
 
+`mkdir build && cd build`
+`cmake ..`
+`make firmware-upload`
 ## Welcome to your project!
 
 Every new Particle project is composed of 3 important elements that you'll see have been created in your project directory for blink.
