@@ -2,8 +2,6 @@ macro(SetupPhotonFirmware PROJECT_TARGET)
     include(ExternalProject)
     find_package(Git REQUIRED)
 
-    # set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/cmake/stm32f2xx.toolchain.cmake")
-
     set(PARTICLE_PLATFORM "photon" CACHE STRING "Particle platform to compile for")
     set(FIRMWARE_DIR "${CMAKE_SOURCE_DIR}/libs/particle-firmware")
     set(APPDIR "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -28,7 +26,7 @@ macro(SetupPhotonFirmware PROJECT_TARGET)
         EXCLUDE_FROM_ALL 1
         SOURCE_DIR "${FIRMWARE_DIR}"
         GIT_REPOSITORY "https://github.com/particle-iot/firmware/"
-        GIT_TAG "release/v0.8.0-rc.3"
+        GIT_TAG "release/stable"
         # URL https://github.com/particle-iot/firmware/archive/v0.8.0-rc.3.tar.gz
         CONFIGURE_COMMAND ""
         WORKING_DIRECTORY "${FIRMWARE_DIR}/main"
